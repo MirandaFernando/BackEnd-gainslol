@@ -3,7 +3,7 @@ class LeaguesController < ApplicationController
 
   # GET /leagues
   def index
-    @leagues = League.all
+    @leagues = League.all.order(:name)
 
     render json: @leagues
   end
