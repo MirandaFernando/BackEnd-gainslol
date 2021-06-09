@@ -47,3 +47,13 @@ rails s
 The backend is available at `http://localhost:3000`.
 
 ## Tests
+
+## Tests
+
+To run the tests:
+
+```bash
+rspec
+```
+
+## Using the Gainslol-api
