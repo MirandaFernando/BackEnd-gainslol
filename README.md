@@ -1,24 +1,49 @@
-# README
+# Gainslol api
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Rails 6 as an API for website gainslol.
 
-Things you may want to cover:
+<table>
+  <tr>
+    <td>Ruby version</td>
+    <td>
+      2.7.2
+    </td>
+  </tr>
+  <tr>
+    <td>Rails version</td>
+    <td>
+      6.1.x
+    </td>
+  </tr>
+  <tr>
+    <td>Database</td>
+    <td>
+      PostgreSQL
+    </td>
+  </tr>
+</table>
 
-* Ruby version
+## Initial settings to run the project
 
-* System dependencies
+```bash
+# clone the project
+git clone https://github.com/MirandaFernando/BackEnd-gainslol.git
 
-* Configuration
+# enter the cloned directory
+cd BackEnd-gainslol
+# install Ruby on Rails dependencies
+bundle install
 
-* Database creation
+# create the development and test databases
+rails db:create
 
-* Database initialization
+# create the tables
+rails db:migrate
 
-* How to run the test suite
+# run the project
+rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+The backend is available at `http://localhost:3000`.
 
-* Deployment instructions
-
-* ...
+## Tests
