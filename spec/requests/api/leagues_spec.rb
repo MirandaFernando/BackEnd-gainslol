@@ -2,13 +2,13 @@ require 'rails_helper'
 
 
 RSpec.describe "/leagues", type: :request do
-
+  let(:name) {'CBLOL'}
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {name: name}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {name: nil}
   }
 
   let(:valid_headers) {
@@ -18,7 +18,7 @@ RSpec.describe "/leagues", type: :request do
   describe "GET /index" do
     it "renders a successful response" do
       League.create! valid_attributes
-      get leagues_url, headers: valid_headers, as: :json
+      get api_leagues_url, headers: valid_headers, as: :json
       expect(response).to be_successful
     end
   end
@@ -26,7 +26,7 @@ RSpec.describe "/leagues", type: :request do
   describe "GET /show" do
     it "renders a successful response" do
       league = League.create! valid_attributes
-      get league_url(league), as: :json
+      get api_league_url(league), as: :json
       expect(response).to be_successful
     end
   end
@@ -35,13 +35,13 @@ RSpec.describe "/leagues", type: :request do
     context "with valid parameters" do
       it "creates a new League" do
         expect {
-          post leagues_url,
+          post api_leagues_url,
                params: { league: valid_attributes }, headers: valid_headers, as: :json
         }.to change(League, :count).by(1)
       end
 
       it "renders a JSON response with the new league" do
-        post leagues_url,
+        post api_leagues_url,
              params: { league: valid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:created)
         expect(response.content_type).to match(a_string_including("application/json"))
@@ -51,37 +51,38 @@ RSpec.describe "/leagues", type: :request do
     context "with invalid parameters" do
       it "does not create a new League" do
         expect {
-          post leagues_url,
+          post api_leagues_url,
                params: { league: invalid_attributes }, as: :json
         }.to change(League, :count).by(0)
       end
 
       it "renders a JSON response with errors for the new league" do
-        post leagues_url,
+        post api_leagues_url,
              params: { league: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq("application/json")
+        expect(response.content_type).to eq("application/json; charset=utf-8")
       end
     end
   end
 
   describe "PATCH /update" do
     context "with valid parameters" do
+      let(:new_name){ 'LCK' }
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {name: new_name}
       }
 
       it "updates the requested league" do
         league = League.create! valid_attributes
-        patch league_url(league),
+        patch api_league_url(league),
               params: { league: new_attributes }, headers: valid_headers, as: :json
         league.reload
-        skip("Add assertions for updated state")
+        expect(league.name).to eq(new_name)
       end
 
       it "renders a JSON response with the league" do
         league = League.create! valid_attributes
-        patch league_url(league),
+        patch api_league_url(league),
               params: { league: new_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to match(a_string_including("application/json"))
@@ -91,10 +92,10 @@ RSpec.describe "/leagues", type: :request do
     context "with invalid parameters" do
       it "renders a JSON response with errors for the league" do
         league = League.create! valid_attributes
-        patch league_url(league),
+        patch api_league_url(league),
               params: { league: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq("application/json")
+        expect(response.content_type).to eq("application/json; charset=utf-8")
       end
     end
   end
@@ -103,7 +104,7 @@ RSpec.describe "/leagues", type: :request do
     it "destroys the requested league" do
       league = League.create! valid_attributes
       expect {
-        delete league_url(league), headers: valid_headers, as: :json
+        delete api_league_url(league), headers: valid_headers, as: :json
       }.to change(League, :count).by(-1)
     end
   end
