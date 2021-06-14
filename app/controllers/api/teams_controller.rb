@@ -1,4 +1,4 @@
-class TeamsController < ApplicationController
+class Api::TeamsController < ApplicationController
   before_action :set_team, only: [:show, :update, :destroy]
 
   # GET /teams
@@ -16,9 +16,8 @@ class TeamsController < ApplicationController
   # POST /teams
   def create
     @team = Team.new(team_params)
-
     if @team.save
-      render json: @team, status: :created, location: @team
+      render json: @team, status: :created, location: api_team_url(@team)
     else
       render json: @team.errors, status: :unprocessable_entity
     end
@@ -46,6 +45,6 @@ class TeamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def team_params
-      params.require(:team).permit(:name)
+      params.require(:team).permit(:name, :league_id)
     end
 end
