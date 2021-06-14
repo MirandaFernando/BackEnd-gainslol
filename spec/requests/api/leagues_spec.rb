@@ -2,7 +2,7 @@ require 'rails_helper'
 
 
 RSpec.describe "/leagues", type: :request do
-  let(:name) {'CBLOL'}
+  let!(:name) {:team}
   let(:valid_attributes) {
     {name: name}
   }
@@ -17,7 +17,6 @@ RSpec.describe "/leagues", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      League.create! valid_attributes
       get api_leagues_url, headers: valid_headers, as: :json
       expect(response).to be_successful
     end
