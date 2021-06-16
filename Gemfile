@@ -20,6 +20,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "rspec-rails", "~> 5.0"
   gem "factory_bot_rails", "~> 6.2"
+  gem "faker", "~> 2.18"
 end
 
 group :development do
@@ -40,4 +41,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 
-gem "faker", "~> 2.18", :groups => [:development, :test]
