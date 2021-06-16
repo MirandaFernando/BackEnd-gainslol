@@ -65,7 +65,7 @@ DeviseTokenAuth.setup do |config|
   # knows where to redirect users after successful password resets. If this param is set,
   # the API will redirect to this value when no value is provided by the client.
   config.default_password_reset_url = 'http://localhost:4200/reset-password'
-  #By default, old tokens are not invalidated when password is changed.
+  # By default, old tokens are not invalidated when password is changed.
   # Enable this option if you want to make passwords updates to logout other devices.  
-  config.remove_tokens_after_password_reset = false
+  config.remove_tokens_after_password_reset = true
 end
