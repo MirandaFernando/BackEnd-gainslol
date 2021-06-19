@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_14_141626) do
+ActiveRecord::Schema.define(version: 2021_06_19_040302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bets", force: :cascade do |t|
+    t.date "game_date"
+    t.string "league"
+    t.string "style"
+    t.string "winner"
+    t.string "loser"
+    t.string "result_bet"
+    t.float "input"
+    t.float "odd"
+    t.float "profit"
+    t.text "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_bets_on_user_id"
+  end
 
   create_table "leagues", force: :cascade do |t|
     t.string "name", null: false
@@ -55,5 +72,6 @@ ActiveRecord::Schema.define(version: 2021_06_14_141626) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "bets", "users"
   add_foreign_key "teams", "leagues"
 end
