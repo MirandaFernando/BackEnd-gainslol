@@ -209,10 +209,15 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.12)
   bootsnap (>= 1.4.4)
   byebug
+<<<<<<< HEAD
   devise_token_auth (~> 1.1)
   factory_bot_rails (~> 6.2)
   faker (~> 2.18)
   letter_opener (~> 1.7)
+=======
+  factory_bot_rails (~> 6.2)
+  faker (~> 2.18)
+>>>>>>> master
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)
