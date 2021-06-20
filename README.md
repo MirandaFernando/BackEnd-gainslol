@@ -1,6 +1,8 @@
-# Gainslol api
+# Ruby on Rails 6 as an API for website Gainslol.
 
-Ruby on Rails 6 as an API for website gainslol.
+This was a personal project to learn to develop Rails applications, the project is about an API so that sports traders can easily be faded and agile its entries.
+The frontend of the application is at https://github.com/joao-mcf/frontend-gainslol.
+Project developed along with https://github.com/Joao-MCF
 
 <table>
   <tr>
