@@ -13,10 +13,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "rspec-rails", "~> 5.0"
   gem "factory_bot_rails", "~> 6.2"
-<<<<<<< HEAD
-=======
-  gem "faker", "~> 2.18"
->>>>>>> master
 end
 
 group :development do
@@ -36,9 +32,4 @@ gem "faker", "~> 2.18", :groups => [:development, :test]
 gem "devise_token_auth", "~> 1.1"
 
 
-<<<<<<< HEAD
 gem "active_model_serializers", "~> 0.10.12"
-=======
-
-
->>>>>>> master

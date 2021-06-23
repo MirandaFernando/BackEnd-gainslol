@@ -2,11 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Team, type: :model do
   
-<<<<<<< HEAD
-  #subject(:team){ build :team } 
-
-=======
->>>>>>> master
   describe 'validations' do
     let!(:team) { create(:team) }
     it { should validate_presence_of(:name)}
