@@ -1,16 +1,15 @@
 class Api::BetsController < ApplicationController
   before_action :authenticate_api_user!
-  before_action :set_bet, only: [:show, :update, :destroy]
 
   # GET /bets
   def index
     @bets = current_api_user.bets.all
-
     render json: @bets
   end
 
   # GET /bets/1
   def show
+    @bet = current_api_user.bets.find(params[:id])
     render json: @bet
   end
 
@@ -27,6 +26,8 @@ class Api::BetsController < ApplicationController
 
   # PATCH/PUT /bets/1
   def update
+    @bet = current_api_user.bets.find(params[:id])
+    
     if @bet.update(bet_params)
       render json: @bet
     else
@@ -36,15 +37,13 @@ class Api::BetsController < ApplicationController
 
   # DELETE /bets/1
   def destroy
-    @bet.destroy
+    @bet = current_api_user.bets.find(params[:id])
+    if @bet.present?
+      @bet.destroy
+    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bet
-      @bet = current_api_user.bets.find(params[:id])
-    end
-
     # Only allow a list of trusted parameters through.
     def bet_params
       params.require(:bet).permit(:game_date, :league, :style, :winner, :loser, :result_bet, :input, :odd, :profit, :comment)

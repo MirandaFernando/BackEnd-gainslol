@@ -55,5 +55,13 @@ To run the tests:
 ```bash
 rspec
 ```
+### technologies used
+
+- RSpec
+- Shoulda Matchers
+- SimpleCov
+- Faker
+- Factory Bot
+
 
 ## Using the Gainslol-api
