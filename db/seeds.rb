@@ -11,4 +11,5 @@ Team.create name: 'Flamengo', league_id: 1
 Team.create name: 'Cloud9', league_id: 3
 Team.create name: 'Fnatic', league_id: 2
 
-Bet.create league: 'CBLOL'
+Bet.create game_date:'25/0' league: 'CBLOL'
+:game_date, :league, :style, :winner, :loser, :result_bet, :input, :odd, :profit, :comment
