@@ -1,6 +1,6 @@
 FactoryBot.define do
     factory :team do
-        name    
+        name {Faker::Esport.team}
         league
 
         factory :invalid_team do

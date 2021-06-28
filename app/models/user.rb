@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
          :validatable
 
   include DeviseTokenAuth::Concerns::User
+  
+  has_many :bets, dependent: :destroy
+  
   before_validation :set_uid
 
   private
