@@ -33,3 +33,7 @@ gem "devise_token_auth", "~> 1.1"
 
 
 gem "active_model_serializers", "~> 0.10.12"
+
+gem "nokogiri", "~> 1.11"
+
+gem "csv", "~> 3.2"
