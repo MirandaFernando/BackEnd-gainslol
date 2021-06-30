@@ -112,7 +112,7 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   # Email
   config.action_mailer.default_url_options = {
-    host: 'course-blog-api.herokuapp.com'
+    host: 'gains-lol-api.herokuapp.com'
   }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
