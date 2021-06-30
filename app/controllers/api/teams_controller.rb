@@ -37,22 +37,6 @@ class Api::TeamsController < ApplicationController
     @team.destroy
   end
 
-  def update_stats
-    file = './public/2021_LoL_esports_match_data_from_OraclesElixir_20210627.csv'
-    File.open(file).each do |row|
-      row = row.split(",")
-      next if row[0] == '"Team"'
-  
-      name = row[0].delete_prefix('"').delete_suffix('"') rescue row[0]
-      wims = row[2].delete('""%').to_i rescue row[2]
-      loses = row[3].delete('""%').to_i rescue row[3]
-      firstTower = row[15].delete('""%').to_f rescue row[15]
-      firstDrag = row[18].delete('""%').to_f rescue row[18]
-      Team.create(name: name, league_id: 1 wims: wims, loses: loses, first_drag: firstDrag , first_tower: firstTower )
-    end
-    @teams = Team.all
-    render json: @teams
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -62,7 +46,7 @@ class Api::TeamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def team_params
-      params.require(:team).permit(:name, :league_id, :wims, :loses, :first_drag, :first_tower)
+      params.require(:team).permit(:name, :league_id, :wimrate, :first_drag, :first_tower)
     end
 
 end
