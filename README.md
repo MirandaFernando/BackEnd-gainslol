@@ -2,7 +2,7 @@
 
 This was a personal project to learn to develop Rails applications, the project is about an API so that sports traders can easily be faded and agile its entries.
 The frontend of the application is at https://github.com/joao-mcf/frontend-gainslol.
-Project developed along with [@Joao-MCF](https://github.com/Joao-MCF)
+Project developed along with [@Joao-MCF](https://github.com/Joao-MCF).
 
 <table>
   <tr>
@@ -47,6 +47,19 @@ rails s
 ```
 
 The backend is available at `http://localhost:3000`.
+## Services Used
+* Github
+* Heroku
+
+## Ruby Gems
+- devise_token_auth
+- active_model_serializers
+- letter_opener
+- RSpec
+- Shoulda Matchers
+- SimpleCov
+- Faker
+- Factory Bot
 
 ## Tests
 
@@ -55,13 +68,6 @@ To run the tests:
 ```bash
 rspec
 ```
-### technologies used
-
-- RSpec
-- Shoulda Matchers
-- SimpleCov
-- Faker
-- Factory Bot
 
 
 ## Using the Gainslol-api
@@ -95,7 +101,15 @@ curl --request DELETE /auth/sign_out
               uid
               client
 ```
-### bets
+####  Delete account
+
+```
+curl --request DELETE /auth
+      Header: token
+              uid
+              client
+```
+## Bets api
 
 ### Include a Header Authorization
 
@@ -132,3 +146,15 @@ params_bet: game_date, league, style, winner, loser,  result_bet, input, odd, pr
 | `POST /api/teams`          | Add a new team.                           | **name**: [String] |
 | `PUT /api/teams/:id`       | Edit the details of an existing team.     | **name**: [String] |
 | `DELETE /api/teams/:id`    | Remove the team.                          |                    |
+
+
+## Links
+  - Deploy: https://gains-lol-api.herokuapp.com/
+  - Repository: https://github.com/MirandaFernando/BackEnd-gainslol
+  - https://github.com/joao-mcf/frontend-gainslol
+
+
+  ## Authors
+
+  * **Fernando de Sousa Miranda**
+  * **João Marcos** 
